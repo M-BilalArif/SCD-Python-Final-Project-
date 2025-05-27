@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  SCD-project
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-center text-white">This is MY SCD PROJECT</h1>
+  
+  {% if not form.instance.pk %}
+    <h2 class="text-center text-white">Create Tweet</h2>
+  {% else %}
+    <h2 class="text-center text-white">Edit Tweet</h2>
+  {% endif %}
+   
+  <form method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-warning" type="submit">Save</button>
+  </form>
+  <a class="btn btn-success" href="{% url 'tweet_list' %}">Back to Tweet List</a>
+{% endblock %}

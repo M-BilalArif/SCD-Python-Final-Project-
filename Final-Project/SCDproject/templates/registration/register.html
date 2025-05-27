@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+{{form.as_p}}
+<button class="byn btn-primary">Register</button>
+</form>
+
+{% endblock %}
